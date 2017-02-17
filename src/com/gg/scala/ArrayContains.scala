@@ -10,7 +10,7 @@ object ArrayContains {
     //    print(arr.contains(str))
     //    val s = "2016/30/2016-07-31"
     //    print(s.split("/")(2))
-    print(getDistance(36.6592983667,116.9698918726,36.6662635859,117.0392564068))
+    print(getDistance(31.1956057092,121.3140231861,31.1957207092,121.3165381861))
 
   }
 

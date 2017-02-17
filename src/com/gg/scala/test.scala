@@ -12,17 +12,36 @@ object test {
 //    val sc = new SparkContext(new SparkConf().setAppName("test").setMaster("local"))
 //    val rdd = sc.parallelize(List("aaa","bbb","ccc","aaa123","ccc1"))
 //    rdd.sortBy( x => x ).foreach( println(_))
-    val str ="00057b593aae"
-    var s = new StringBuilder
-    for(i <- 0 to str.length-2 ;if (i+1)%2 !=0){
-      if(i!=str.length-2)
-        s.append(str.substring(i,i+2)+":")
-      else
-        s.append(str.substring(i,i+2))
-    }
-val a = (10*100/3.toDouble).formatted("%.3f").toDouble
-    print(a)
-
+//    val str ="00057b593aae"
+//    var s = new StringBuilder
+//    for(i <- 0 to str.length-2 ;if (i+1)%2 !=0){
+//      if(i!=str.length-2)
+//        s.append(str.substring(i,i+2)+":")
+//      else
+//        s.append(str.substring(i,i+2))
+//    }
+//val a = (10*100/3.toDouble).formatted("%.3f").toDouble
+//    print(a)
+//    val date = "2016-01-01""
+//    val str = new StringBuilder("lala")
+//    for(i <- 1 to 10){
+//
+//      str.append(i).append("\t"+i)
+//    }
+//print(str)
+    val ss = "s"
+    val g = s"hello,function $ss"
+    val map  = Map("aa"->123)
+    map.foreach(x=>println(x._1))
 //    print(str.count(x=>x.equals('0')))
+//    sc.parallelize(Array(Some("aa"->Set(1,2)),Some("ab"->Set(1,2)))).flatMap(x => x).foreach(println)
+  }
+  def t1 : Boolean={
+    if (2<2){
+      println("1")
+      return true
+    }
+    print("2")
+      false
   }
 }

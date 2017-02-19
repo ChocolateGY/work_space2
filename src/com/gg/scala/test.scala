@@ -29,10 +29,12 @@ object test {
 //      str.append(i).append("\t"+i)
 //    }
 //print(str)
-    val ss = "s"
-    val g = s"hello,function $ss"
-    val map  = Map("aa"->123)
-    map.foreach(x=>println(x._1))
+//    val ss = "s"
+    val s = "365951d04368ae9643b4b05a3c1c2b1b7\t24\tSome(31.244430541992188,121.57539367675781)"
+    println(s.split("\t")(2).substring(4,s.split("\t")(2).length-1)+s.split("\t")(2).indexOf('('))
+//    val g = s"hello,function $ss"
+//    val map  = Map("aa"->123)
+//    map.foreach(x=>println(x._1))
 //    print(str.count(x=>x.equals('0')))
 //    sc.parallelize(Array(Some("aa"->Set(1,2)),Some("ab"->Set(1,2)))).flatMap(x => x).foreach(println)
   }

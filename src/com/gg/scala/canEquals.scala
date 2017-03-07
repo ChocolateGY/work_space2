@@ -9,7 +9,7 @@ object canEquals {
 
      val l2=List(1,2,3)
 
-     val l3=Seq(3)
+     val l3=Seq(5)
 print(l.canEqual(l2) + "   "+ l.canEqual(l3))
 
 
@@ -19,7 +19,7 @@ print(l.canEqual(l2) + "   "+ l.canEqual(l3))
 
     //but if canEqual checks for type of passed instance then why this returns true when I call canEqual on List but pass a Set
 
-    val s = Set(1,2,3)
+    val s = Set(4,53)
 
 
 

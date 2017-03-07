@@ -5,12 +5,12 @@ package com.gg.scala
   */
 object ArrayContains {
   def main(args: Array[String]) {
-    //    val arr = Array("haha","heihei","hehe")
-    //    var str = null
-    //    print(arr.contains(str))
+        val arr = Array("haha","heihei","hehe")
+        var str = Array("haha","heihie")
+        print(arr.tail)
     //    val s = "2016/30/2016-07-31"
     //    print(s.split("/")(2))
-    print(getDistance(31.1956057092,121.3140231861,31.1957207092,121.3165381861))
+//    print(getDistance(31.1956057092,121.3140231861,31.1957207092,121.3165381861))
 
   }
 

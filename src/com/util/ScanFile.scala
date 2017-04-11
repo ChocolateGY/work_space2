@@ -1,4 +1,4 @@
-package com.talkingdata
+package com.util
 
 import java.io.File
 
@@ -9,8 +9,8 @@ import java.io.File
 object ScanFile {
 
   def main(args: Array[String]) {
-    val a = new File("C:\\Users\\Chocolate\\Desktop\\公司\\LianHeTongShang")
-    subdirs1(a).foreach(println(_))
+    val a = new File("D:\\TalkingData\\2017-04-06\\aoiNameStat\\aoiNameStat")
+    subdirs(a).foreach(x=>println(x.getName))
 //    walk(a)
   }
 

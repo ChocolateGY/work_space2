@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object NewZooStat {
   def main(args: Array[String]) {
     val sc = new SparkContext(new SparkConf().setAppName("newzoo").setMaster("local[4]"))
-    val a = sc.textFile("D:\\TalkingData\\2017-03-29\\201702").flatMap {
+    val a = sc.textFile("D:\\TalkingData\\newzoo\\newzoo201703\\201703").flatMap {
       str =>
         val arr = str.split("\t")
         arr match {
@@ -17,7 +17,7 @@ object NewZooStat {
           }
           case _ => None
         }
-    }.reduceByKey(_ + _).map(x => x._1 + "\t" + x._2).repartition(1).saveAsTextFile("D:\\TalkingData\\2017-03-29\\201702Stat")
+    }.reduceByKey(_ + _).map(x => x._1 + "\t" + x._2).repartition(1).saveAsTextFile("D:\\TalkingData\\newzoo\\201703Stat")
   }
 
 }

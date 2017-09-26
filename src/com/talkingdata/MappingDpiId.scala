@@ -1,8 +1,6 @@
 package com.talkingdata
 
-import java.io.{File, PrintWriter}
-
-import com.util.ScanFile
+import java.io.PrintWriter
 
 import scala.io.Source
 
@@ -10,7 +8,7 @@ import scala.io.Source
   * Created by root on 2017-2-16.
   * 内部需求，匹配标签id
   */
-object MappingId {
+object MappingDpiId {
   def main(args: Array[String]) {
     /*ScanFile.subdirs(new File("D:\\TalkingData\\2017-04-06\\aoiNameStat50wLabel\\aoiNameStat50wLabel")).foreach{
       dir =>
@@ -36,15 +34,15 @@ object MappingId {
         out.close()
     }*/
     // TD 标签Mapping
-    val out = new PrintWriter("D:\\TalkingData\\2017年8月15日\\LongGMac2\\LongGMac2.txt")
-    val schema = Source.fromFile("D:\\TalkingData\\2017-03\\2017-03-08\\label.txt").getLines()
+    val out = new PrintWriter("D:\\TalkingData\\2017年7月3日\\jindiDPILabel.txt")
+    val schema = Source.fromFile("D:\\TalkingData\\dpiLabel.txt").getLines()
       .map(x => x.split("\t")(0) -> x.split("\t")(1))
       .toArray
 
     //    out.println("\t" + schema.map(x => x._2).mkString("\t"))
     //    3799fe1827b3542d9d5df5b2bb9eb1046	2C:5B:B8:6D:03:99	OPPO	R7s		318:,303:,302:,320:100.00,305:81.00
     //不带权重
-//        val test = Source.fromFile("D:\\TalkingData\\2017年6月27日\\xyy2\\xyy2\\part-00000").getLines()
+//        val test = Source.fromFile("D:\\TalkingData\\2017年6月20日\\nielsen0620\\nielsen\\part-00000").getLines()
 //        test.foreach {
 //          x =>
 //            var str = x.split("\t").init.mkString("\t")
@@ -58,7 +56,7 @@ object MappingId {
 //        }
 //        out.close()
     //带权重
-    val test1 = Source.fromFile("D:\\TalkingData\\2017年8月15日\\LongGMac2\\LongGMac2\\part-00000").getLines()
+    val test1 = Source.fromFile("D:\\TalkingData\\2017年7月3日\\jindiDPI.txt").getLines()
     test1.foreach {
       x =>
         var str = x.split("\t").init.mkString("\t")
@@ -68,7 +66,7 @@ object MappingId {
             if (x.split(":").length == 2)
               x.split(":")(0) -> x.split(":")(1)
             else
-              x.split(":")(0) -> "0.3"
+              x.split(":")(0) -> "0.01"
         }.toMap
         for (i <- schema.indices) {
           val t = l.getOrElse(schema(i)._1, "")

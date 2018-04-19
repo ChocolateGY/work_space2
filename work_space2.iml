@@ -10,5 +10,6 @@
     <orderEntry type="library" name="scala-sdk-2.10.4" level="application" />
     <orderEntry type="library" name="spark-assembly-1.6.0-hadoop2.4.0" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.6" level="project" />
+    <orderEntry type="library" name="sdmk-sdk-java-0.0.1" level="project" />
   </component>
 </module>

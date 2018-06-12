@@ -9,23 +9,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac69d1f5-c3ca-4395-9656-f089d6bf1307" name="Default" comment="2018-04-11">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/hydra.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/sdmk_sdk_java_0_0_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/talkingdata/JsonParse.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/talkingdata/Package2Hash.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/talkingdata/Sdmk.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/talkingdata/TraitDemo.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/io/Hello.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/Arguments.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/ChecksumAccumulator.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/HelloWorld.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/Rational.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/SparkSqlJoin.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/Test.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/def_val_lazy.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/jike.scala" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/work_space2.iml" afterPath="$PROJECT_DIR$/work_space2.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/talkingdata/LocalClass.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array1.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array10.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array11.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array2.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array3.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array4.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array5.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array6.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array7.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array8.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Array/Array9.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/List/List2.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/List/List3.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/List/List4.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/List/List5.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String1.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String2.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String3.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String4.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String5.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String6.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String7.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String8.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/String/String9.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode/Utillity.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode4Java/Array/Array1.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode4Java/String/String1.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/leetcode4Java/String/String3.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/study/scala/TailRecursive.scala" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/study/scala/SparkSqlJoin.scala" afterPath="$PROJECT_DIR$/src/study/scala/SparkSqlJoin.scala" />
     </list>
     <ignored path="work_space2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +69,7 @@
       <file leaf-file-name="Test.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/study/scala/Test.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="0">
               <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding>
                 <element signature="e#21#70#0" expanded="true" />
@@ -65,7 +81,7 @@
       <file leaf-file-name="Sdmk.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/talkingdata/Sdmk.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
+            <state relative-caret-position="220">
               <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding>
                 <element signature="e#69#107#0" expanded="true" />
@@ -84,21 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SparkSqlJoin.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SparkSqlJoin.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/study/scala/SparkSqlJoin.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="66">
               <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -273,7 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -336,6 +341,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
@@ -1000,7 +1006,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33650795" sideWeight="0.49322918" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17004265" sideWeight="0.4951989" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1716418" sideWeight="0.4951989" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25266525" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1371,7 +1377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9174">
           <caret line="462" column="7" lean-forward="false" selection-start-line="462" selection-start-column="7" selection-end-line="462" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1420,7 +1425,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/talkingdata/DMK.java" />
     <entry file="file://$PROJECT_DIR$/src/study/scala/Test.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="0">
           <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding>
             <element signature="e#21#70#0" expanded="true" />
@@ -1430,7 +1435,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/talkingdata/Sdmk.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
+        <state relative-caret-position="220">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="e#69#107#0" expanded="true" />
@@ -1446,18 +1451,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/study/scala/SparkSqlJoin.scala">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="66">
+          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/study/scala/SparkSqlJoin.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="66">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>

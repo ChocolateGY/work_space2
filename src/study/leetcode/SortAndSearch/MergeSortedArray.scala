@@ -39,6 +39,9 @@ object MergeSortedArray {
     * 如果是第一个数组用完了，说明剩下的(最小的那些)全是数组2，把数组2填充进去就好了
     * *
     * 如果是第二个数组用完了，说明剩下的全是数组1，不用填充了，他们已经在了
+    *
+    *
+    * 时间超时，使用java的通过。平台问题
     */
 
   def merge(nums1: Array[Int], m: Int, nums2: Array[Int], n: Int): Unit = {

@@ -12,7 +12,7 @@ public class Tree1 {
     public int maxDepth(TreeNode root) {
         if (root == null) return 0;
         int res = 0;
-        Queue<TreeNode> q = new LinkedList<>();
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
         q.offer(root);
         while (!q.isEmpty()) {
             ++res;

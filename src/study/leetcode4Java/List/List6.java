@@ -1,6 +1,6 @@
 package study.leetcode4Java.List;
 
-import study.leetcode.List.ListNode;
+import study.leetcode_primary.List.ListNode;
 
 /**
  * 环形链表

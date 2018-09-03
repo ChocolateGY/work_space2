@@ -1,6 +1,6 @@
 package study.leetcode4Java.Tree;
 
-import study.leetcode.Tree.TreeNode;
+import study.leetcode_primary.Tree.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

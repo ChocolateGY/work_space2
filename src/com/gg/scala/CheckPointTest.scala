@@ -23,7 +23,7 @@ object CheckPointTest {
 
     val result = pairs.groupByKey(2)
 
-    result.foreachWith(i => i)((x, i) => println("[PartitionIndex " + i + "] " + x))
+//    result.foreachWith(i => i)((x, i) => println("[PartitionIndex " + i + "] " + x))
 
     println(result.toDebugString)
   }

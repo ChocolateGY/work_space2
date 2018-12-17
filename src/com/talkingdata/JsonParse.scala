@@ -12,7 +12,7 @@ object JsonParse {
     val sqlContext = new SQLContext(sc)
     //    val rdd = sc.textFile("C:\\Users\\Chocolate\\Desktop\\2d8d29e3e3de81e39dcab6d6ba6acf051.json")
     val df = sqlContext.read.json("C:\\Users\\Chocolate\\Desktop\\2d8d29e3e3de81e39dcab6d6ba6acf051.json")/*.printSchema()*/
-    df.map {
+    df.rdd.map {
       row =>
         val tdid = row.getLong(0)
         val data = row.getStruct(1)

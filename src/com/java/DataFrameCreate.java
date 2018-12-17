@@ -2,7 +2,7 @@ package com.java;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.sql.DataFrame;
+//import org.apache.spark.sql.DataFrame;
 import org.apache.spark.sql.SQLContext;
 
 public class DataFrameCreate {

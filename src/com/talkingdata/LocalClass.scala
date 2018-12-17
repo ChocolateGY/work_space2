@@ -16,7 +16,7 @@ object LocalClass {
 
     }.repartition(1).saveAsTextFile("D:\\TalkingData\\2018年5月8日\\shouguang")
     val a :Any = AnyRef
-    val b : Any = AnyVals
+//    val b : Any = AnyVals
 
   }
 }

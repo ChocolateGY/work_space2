@@ -30,7 +30,7 @@ object CombineFIle {
     val id = sc.textFile("/datascience/datacloud/datacenter/delivery/temporary/2017-3-29/三星inP1-note3-92388.txt").collect().toSet
     val idB = sc.broadcast(id)
     sqlContext.read.parquet("/data/datacenter/rank/infos/2017/13/2017-03-27/deviceinfos")
-      .select("deviceId", "model", "change_date", "first_date", "active_date").flatMap {
+      .select("deviceId", "model", "change_date", "first_date", "active_date").rdd.flatMap {
       row =>
         if (idB.value.contains(row.getString(0)))
           Some(row.getString(0) + "\t" + row.getString(1) + "\t" + row.getInt(2) + "\t" + row.getInt(3) + "\t" + row.getInt(4))

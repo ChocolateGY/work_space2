@@ -2,3 +2,6 @@ lib
 out
 .idea/
 *.iml
+target
+.project
+.project/

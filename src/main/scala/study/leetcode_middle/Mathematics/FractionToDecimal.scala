@@ -50,9 +50,14 @@ object FractionToDecimal {
           pos += 1
           map += (num -> pos)
         }
-        integ + s".$frac"
+        return integ + s".$frac"
       }
       integ.toString
     }
+  }
+
+  def main(args: Array[String]): Unit = {
+    val a = fractionToDecimal(2,3)
+    println(a)
   }
 }

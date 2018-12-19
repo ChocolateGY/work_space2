@@ -3,6 +3,8 @@ package study.leetcode_middle.Design;
 
 import sun.reflect.generics.tree.Tree;
 
+import java.util.Scanner;
+
 /**
  * Created by root on 2018-9-13.
  * <p>
@@ -88,4 +90,28 @@ public class TreeNodeSerialize {
         pos = 0;
         return parse(data);
     }
+
+    public static void main(String[] args) {
+        TreeNodeSerialize codec = new TreeNodeSerialize();
+        TreeNode root1 = codec.create();
+        TreeNode root2 = codec.deserialize(codec.serialize(root1));
+        codec.serialize(root2);
+
+    }
+    public TreeNode create() {
+        Scanner sc = new Scanner(System.in);
+        TreeNode root = null;
+        int val = 0;
+        String str = sc.next();
+        if (str.equals("#"))
+            root = null;
+        else {
+            val = Integer.parseInt(str);
+            root = new TreeNode(val);
+            root.left = create();
+            root.right = create();
+        }
+        return root;
+    }
+
 }

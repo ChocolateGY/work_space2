@@ -1,4 +1,4 @@
-package study.leetcode_middle.Mathematics
+package study.leetcode_middle.Other
 
 /**
   * 求众数

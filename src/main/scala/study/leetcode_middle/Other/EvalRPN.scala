@@ -1,4 +1,4 @@
-package study.leetcode_middle.Mathematics
+package study.leetcode_middle.Other
 
 /**
   * 逆波兰表达式求值

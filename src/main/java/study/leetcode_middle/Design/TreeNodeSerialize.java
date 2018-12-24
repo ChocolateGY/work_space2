@@ -94,9 +94,9 @@ public class TreeNodeSerialize {
     public static void main(String[] args) {
         TreeNodeSerialize codec = new TreeNodeSerialize();
         TreeNode root1 = codec.create();
-        TreeNode root2 = codec.deserialize(codec.serialize(root1));
-        codec.serialize(root2);
-
+//        TreeNode root2 = codec.deserialize(codec.serialize(root1));
+//        codec.serialize(root2);
+        System.out.println(codec.serialize(root1));
     }
     public TreeNode create() {
         Scanner sc = new Scanner(System.in);

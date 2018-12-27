@@ -1,4 +1,4 @@
-package study.leetcode_advanced;
+package study.leetcode_advanced.ArrayAndString;
 
 public class ProductExceptSelf_Java {
     public int[] productExceptSelf(int[] nums) {

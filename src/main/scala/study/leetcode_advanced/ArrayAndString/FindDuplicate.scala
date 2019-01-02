@@ -37,6 +37,10 @@ object FindDuplicate {
     * |BA| = |OA|.
     * 所以在两个指针相遇后，将慢指针移到O点起始位置，即链表头指针位置，快指针仍然在B点。
     * 然后它们一起向前移动，每次移动一个位置，由于|BA| = |OA|, 所以他们最终肯定会在A点相遇，A点这个相遇点就是环的入口点。
+    *
+    * list：
+    * slow：1 3 2 4 ~ 2 4 2
+    * fast：3 4 4 4 ~ 1 3 2
     */
   def findDuplicate(nums: Array[Int]): Int = {
     var slow = nums(0)
@@ -52,17 +56,70 @@ object FindDuplicate {
     }
     slow
   }
+
+  /**
+    * 暴力循环
+    *
+    * @param nums
+    * @return
+    */
   def findDuplicate2(nums: Array[Int]): Int = {
     var res = -1
     if (nums == null || nums.size < 1)
       return res
 
     for (i <- nums.indices) {
-      for (j <- i+1 until nums.length) {
+      for (j <- i + 1 until nums.length) {
         if (nums(i) == nums(j))
           res = nums(i)
       }
     }
     res
+  }
+
+  /**
+    * 修改数组的一种方式
+    */
+  def findDuplicate3(nums: Array[Int]): Int = {
+    val n = nums.length
+    for (i <- nums.indices) {
+      val temp = nums(i) % n
+      nums(temp) += n
+      if (nums(temp) / n == 2)
+        return temp
+    }
+    -1
+  }
+
+  /**
+    *
+    * 二分搜索法
+    * 我们在区间[1, n]中搜索，首先求出中点mid，然后遍历整个数组，统计所有小于等于mid的数的个数，
+    * 如果个数小于等于mid，则说明重复值在[mid+1, n]之间，反之，重复值应在[1, mid-1]之间，然后依次类推，
+    * 直到搜索完成，此时的low就是我们要求的重复值，
+    *
+    * @param args
+    */
+  def findDuplicate4(nums: Array[Int]): Int = {
+    var left = 0
+    var right = nums.length
+    while (left < right) {
+      val mid = left + (left + right) / 2
+      var cnt = 0
+      for (n <- nums) {
+        if (n <= mid) cnt += 1
+      }
+      if (cnt <= mid)
+        left = mid + 1
+      else
+        right = mid
+    }
+    right
+  }
+
+  def main(args: Array[String]): Unit = {
+    val arr = Array(1, 3, 4, 2, 2)
+    val res = findDuplicate(arr)
+    println(res)
   }
 }

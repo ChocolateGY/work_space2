@@ -52,7 +52,8 @@ libraryDependencies ++= Seq(
   "org.javassist" % "javassist" % "3.18.1-GA",
   "com.talkingdata.analytics" % "analytics-eventpackage" % "0.0.7",
   "net.sf.jsi" % "jsi" % "1.1.0",
-  "net.sf.trove4j" % "trove4j" % "3.0.3"
+  "net.sf.trove4j" % "trove4j" % "3.0.3",
+  "junit" % "junit" % "4.10" % Test
 )
 
 dependencyOverrides ++= Set(

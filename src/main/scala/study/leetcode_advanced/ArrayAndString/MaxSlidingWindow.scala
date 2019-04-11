@@ -1,6 +1,6 @@
 package study.leetcode_advanced.ArrayAndString
 
-import scala.collection.mutable
+import java.util
 
 
 /**
@@ -63,28 +63,86 @@ object MaxSlidingWindow {
   }
 
   /**
-    * 优先队列
+    * 双向队列 double ended queue
+    *
+    * scala语言环境 超出时间限制
     *
     * @param nums
     * @param k
     * @return
     */
   def maxSlidingWindow2(nums: Array[Int], k: Int): Array[Int] = {
-    //    if (nums == null || nums.isEmpty)
-    //      Array[Int]()
-    //    else {
-    //      val pq = mutable.PriorityQueue()
-    //
-    //    }
-    nums
+    if (nums == null || nums.isEmpty)
+      Array[Int]()
+    else {
+      val deque: util.LinkedList[Int] = new util.LinkedList[Int]()
+      val res = new Array[Int](nums.length - k + 1)
+      for (i <- nums.indices) {
+        //当队列不为空时，如果发现队列的头是最左边数的下标，就删除
+        if (!deque.isEmpty && deque.peekFirst() == i - k) deque.poll()
+        //当队列不为空时，把队尾比新数小的删除。 保证队列是降序的
+        while (!deque.isEmpty && nums(deque.peekLast()) < nums(i)) deque.removeLast()
+        //加入新数
+        deque.offerLast(i)
+        // 队列头部就是窗口内第一大的
+        if ((i + 1) >= k) res(i + 1 - k) = nums(deque.peek())
+      }
+      res
+    }
+
+  }
+
+  /**
+    * 速度最快的方法
+    * scala语言环境 超出时间限制
+    *
+    * @param nums
+    * @param k
+    * @return
+    */
+
+  def maxSlidingWindow3(nums: Array[Int], k: Int) = {
+    if (nums == null || nums.isEmpty)
+      Array[Int]()
+    else {
+      val res = new Array[Int](nums.length - k + 1)
+      var maxI = -1
+      for (i <- res.indices; j = k - 1 + i) {
+        if (maxI >= i && maxI <= j) {
+          if (nums(j) > nums(maxI))
+            maxI = j
+        } else
+          maxI = getMaxIndex(nums, i, j)
+
+        res(i) = nums(maxI)
+      }
+      res
+    }
+
+  }
+
+  def getMaxIndex(nums: Array[Int], i: Int, j: Int): Int = {
+    var maxIndex = i
+    for (m <- 0 until (j - i); k <- (i + 1) until (j + 1)) {
+      if (nums(k) > nums(maxIndex))
+        maxIndex = k
+    }
+    maxIndex
   }
 
   def main(args: Array[String]): Unit = {
-    //    val nums = Array(1, 3, -1, -3, 5, 3, 6, 7)
-    //    val k = 3
-    val nums = Array(1, -1)
-    val k = 1
-    maxSlidingWindow(nums, k).foreach(x => print(x + " "))
+    val nums = Array(1, 3, -1, -3, 5, 3, 6, 7)
+    val k = 3
+    //    val nums = Array(1, -1)
+    //    val k = 1
+    //    maxSlidingWindow(nums, k).foreach(x => print(x + " "))
+    //    maxSlidingWindow2(nums, k).foreach(x => print(x + " "))
+    maxSlidingWindow3(nums, k).foreach(x => print(x + " "))
+    //    val q: util.Deque[Int] = new util.ArrayDeque[Int]()
+    //    Range(1, 5).foreach(x => q.add(x))
+    //    println(q.peek())
+    //    println(q.poll())
+    //    println(q.poll())
 
   }
 }

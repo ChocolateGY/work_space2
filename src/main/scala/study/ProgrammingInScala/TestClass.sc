@@ -28,7 +28,10 @@ def smplifyTop(expr: Expr): Expr = expr match {
 }
 smplifyTop(UnOp("-", UnOp("-", Number(10))))
 
+import java.io.{File, PrintWriter}
+
 import math.{E, Pi}
+import scala.collection.{SortedSet, mutable}
 
 val pi = Pi
 E match {
@@ -45,7 +48,21 @@ def simplifyAll(expr: Expr): Expr = expr match {
   case _ => expr
 }
 
-
-
-
-
+def myAssert(predict: => Boolean): Unit = {
+  if (predict)
+    println("true")
+  else
+    print("false")
+}
+myAssert(5 > 3)
+def write(file:File)( op : PrintWriter=>Unit): Unit ={
+  val w = new PrintWriter(file)
+  try{
+    op(w)
+  }finally
+    w.close()
+}
+write(new File("test.txt")){
+  write=>
+    write.println("hahha")
+}

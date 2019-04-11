@@ -66,6 +66,20 @@ object Rational {
     implicit def intToRation(i: Int): Rational = new Rational(i)
 
     println(2 + b)
-    println(2 + new Rational(1,0))
+    println(2 + new Rational(1, 0))
   }
+}
+
+class Rational2(val numer: Int, val denom: Int) {
+  require(denom != 0)
+
+  override def toString = numer + "/" + denom
+
+  def add(that: Rational2): Rational2 =
+    new Rational2(
+      numer * that.denom + that.numer * denom,
+      denom * that.denom
+    )
+
+
 }

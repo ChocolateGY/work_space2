@@ -19,7 +19,6 @@ object NewZooStat {
           case _ => None
         }
     }.reduceByKey(_ + _).map(x => x._1 + "\t" + x._2).repartition(1).saveAsTextFile("D:\\TalkingData\\newzoo\\201703Stat")
-    import new SQLContext(sc).implicits._
   }
 
 }

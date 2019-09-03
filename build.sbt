@@ -53,7 +53,10 @@ libraryDependencies ++= Seq(
   "com.talkingdata.analytics" % "analytics-eventpackage" % "0.0.7",
   "net.sf.jsi" % "jsi" % "1.1.0",
   "net.sf.trove4j" % "trove4j" % "3.0.3",
-  "junit" % "junit" % "4.10" % Test
+  "junit" % "junit" % "4.10" % Test,
+  "default" % "etl-common-lib_2.11" % "1.19" withSources() /*exclude("com.talkingdata.dmp" , "bitmap-ext_2.11")*/ excludeAll (ExclusionRule(organization = "com.talkingdata.dmp")) exclude("net.jpountz.lz4", "lz4"),
+  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % "0.52.2" % Compile,
+  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % "0.52.2" % Provided
 )
 
 dependencyOverrides ++= Set(
@@ -89,7 +92,8 @@ mappings in Universal := {
         name.contains("analytics-eventpackage") ||
         name.contains("msgpack-scala") ||
         name.contains("jsi") ||
-        name.contains("trove4j")
+        name.contains("trove4j") ||
+        name.contains("etl-common-lib_2.11")
     }
   }
   filtered

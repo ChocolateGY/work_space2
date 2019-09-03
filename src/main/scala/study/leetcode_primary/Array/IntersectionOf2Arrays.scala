@@ -32,7 +32,7 @@ object IntersectionOf2Arrays {
     */
   def intersect(nums1: Array[Int], nums2: Array[Int]): Array[Int] = {
     // scala 自己实现了intersect。仿照写一个
-    //    nums1.intersect(nums2)
+        nums1.intersect(nums2)
     val result = collection.mutable.ArrayBuffer[Int]()
     val occ = new collection.mutable.HashMap[Int, Int]() {
       override def default(k: Int) = 0

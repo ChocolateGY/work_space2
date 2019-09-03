@@ -34,12 +34,13 @@ object MappingDpiId {
         out.close()
     }*/
     // TD 标签Mapping
-    val out = new PrintWriter("D:\\TalkingData\\2017年7月3日\\jindiDPILabel.txt")
-    val schema = Source.fromFile("D:\\TalkingData\\dpiLabel.txt").getLines()
+    val out = new PrintWriter("D:\\TalkingData\\交付-teddy\\2019年6月6日_gov\\imsi\\tdid_imsi_label.txt")
+//    val schema = Source.fromFile("D:\\TalkingData\\dpiLabel.txt").getLines()
+val schema = Source.fromFile("D:\\TalkingData\\资料\\label_190329.txt").getLines()
       .map(x => x.split("\t")(0) -> x.split("\t")(1))
       .toArray
 
-    //    out.println("\t" + schema.map(x => x._2).mkString("\t"))
+        out.println("\t" + schema.map(x => x._2).mkString("\t"))
     //    3799fe1827b3542d9d5df5b2bb9eb1046	2C:5B:B8:6D:03:99	OPPO	R7s		318:,303:,302:,320:100.00,305:81.00
     //不带权重
 //        val test = Source.fromFile("D:\\TalkingData\\2017年6月20日\\nielsen0620\\nielsen\\part-00000").getLines()
@@ -56,12 +57,12 @@ object MappingDpiId {
 //        }
 //        out.close()
     //带权重
-    val test1 = Source.fromFile("D:\\TalkingData\\2017年7月3日\\jindiDPI.txt").getLines()
+    val test1 = Source.fromFile("D:\\TalkingData\\交付-teddy\\2019年6月6日_gov\\imsi\\teddy_gov_20190606_tdid_imsi_label\\part-00000").getLines()
     test1.foreach {
       x =>
         var str = x.split("\t").init.mkString("\t")
         val arr = x.split("\t")
-        val l = arr.tail.mkString.split(",").map {
+        val l = arr.last.split(",").map {
           x =>
             if (x.split(":").length == 2)
               x.split(":")(0) -> x.split(":")(1)

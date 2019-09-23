@@ -21,6 +21,7 @@ public class QuickSort {
      */
     private static <T extends Comparable<? super T>> T median3(T[] a, int left, int right) {
         int center = (left + right) / 2;
+        //过程可以理解为一个小的冒泡排序
         if (a[center].compareTo(a[left]) < 0)
             swapReferences(a, left, center);
         if (a[right].compareTo(a[center]) < 0)

@@ -27,7 +27,7 @@ object SortList {
       arr += cur.`val`
       cur = cur.next
     }
-    val res = quickSAort(arr)
+    val res = quickSort(arr)
     val resNode = new ListNode(res(0))
     var newCur = resNode
     for (i <- 1 until res.length) {
@@ -38,14 +38,14 @@ object SortList {
     resNode
   }
 
-  def quickSAort(a: ArrayBuffer[Int]): ArrayBuffer[Int] = {
+  def quickSort(a: ArrayBuffer[Int]): ArrayBuffer[Int] = {
     if (a.length < 2)
       a
-    else quickSAort(a.filter(_ < a.head)) ++ a.filter(_ == a.head) ++ quickSAort(a.filter(_ > a.head))
+    else quickSort(a.filter(_ < a.head)) ++ a.filter(_ == a.head) ++ quickSort(a.filter(_ > a.head))
   }
 
   def main(args: Array[String]): Unit = {
-    val a = quickSAort(ArrayBuffer(6, 5, 4, 3, 2, 1))
+    val a = quickSort(ArrayBuffer(6, 5, 4, 3, 2, 1))
     a.foreach(print)
     val res = sortList(new ListNode(1))
     println(res.`val`)

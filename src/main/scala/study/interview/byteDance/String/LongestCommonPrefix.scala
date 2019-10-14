@@ -36,6 +36,7 @@ object LongestCommonPrefix {
   /**
     * 自己实现
     *
+    * 总结：计算出最短字符案串长度，挨个匹配前缀
     * @param strs
     * @return
     */
@@ -55,6 +56,8 @@ object LongestCommonPrefix {
 
   /**
     * 使用二分法查找
+    *
+    * 总结：计算出最短字符串长度，在0和length之间是用二分法查找。
     *
     * @param strs
     * @return

@@ -45,6 +45,9 @@ package study.interview.byteDance.String
   * 还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，
   * 这是由于此时出现过重复的字符，left的位置更新了，如果又遇到了新的字符，
   * 就要重新计算最长无重复子串。最后每次都要在哈希表中将当前字符对应的值赋值为i+1。
+  *
+  *
+  * 总结：滑动窗口，用数组【256】来代替hashmap寻找窗口中每个字符的位置。
   */
 object LengthOfLongestSubstring {
   def main(args: Array[String]): Unit = {

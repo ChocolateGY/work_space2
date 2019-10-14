@@ -90,25 +90,25 @@ object SparkLocal {
     //        res.iterator
     //    }
     //    a.collect().foreach(println)
-    val a = sc.makeRDD(1 to 10, 10).randomSplit(Array(1.0, 2.0, 3.0, 4.0))
-    println(a.length)
-    println("0:")
-    a(0).collect().foreach(println)
-    println("1:")
-    a(1).collect().foreach(println)
-    println("2:")
-    a(2).collect().foreach(println)
-    println("3:")
-    a(3).collect().foreach(println)
-
-    sc.makeRDD(1 to 10, 3).mapPartitionsWithIndex {
-      (x, iter) =>
-        var res = List[String]()
-        var i = 0
-        while (iter.hasNext)
-          i += iter.next()
-        Nil.::(x + "|" + i).toIterator
-    }.collect().foreach(println)
+//    val a = sc.makeRDD(1 to 10, 10).randomSplit(Array(1.0, 2.0, 3.0, 4.0))
+//    println(a.length)
+//    println("0:")
+//    a(0).collect().foreach(println)
+//    println("1:")
+//    a(1).collect().foreach(println)
+//    println("2:")
+//    a(2).collect().foreach(println)
+//    println("3:")
+//    a(3).collect().foreach(println)
+//
+//    sc.makeRDD(1 to 10, 3).mapPartitionsWithIndex {
+//      (x, iter) =>
+//        var res = List[String]()
+//        var i = 0
+//        while (iter.hasNext)
+//          i += iter.next()
+//        Nil.::(x + "|" + i).toIterator
+//    }.collect().foreach(println)
 
   }
 

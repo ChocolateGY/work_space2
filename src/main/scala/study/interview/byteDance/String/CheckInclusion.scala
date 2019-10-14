@@ -28,6 +28,18 @@ package study.interview.byteDance.String
   * solution
   *
   * https://www.cnblogs.com/MrSaver/p/9638279.html
+  *
+  * 总结:这道题，我们用到的算法是滑动窗口，思路大体是这样的：
+  *
+  * 　　首先字符串s1的排列的可能性应该是它的长度的阶乘，因为字符串长度可能为10000，
+  *
+  * 所以找出所有排列情况是不太可能。我们可以转换思路，不要关注排列的形式，
+  *
+  * 而是关注排列中元素的数量关系，比如aab，那么，转换为数量关系就是{a:2,b:1}，因为S1长度为3，
+  *
+  * 所以我们的窗口长度也为3，如果我们在S2的找到了这样一个窗口符合出现a的次数是两个，b是一个，
+  *
+  * 那么S2就是包含S1的排列的。
   */
 object CheckInclusion {
   def main(args: Array[String]): Unit = {
@@ -80,12 +92,12 @@ object CheckInclusion {
     s1.foreach(s => arr1(s - 'a') += 1)
     for (i <- s2.indices) {
       if (i >= l1)
-        arr2(s2(i-l1) - 'a') -= 1
+        arr2(s2(i - l1) - 'a') -= 1
       arr2(s2(i) - 'a') += 1
       var flag = true
       for (n <- arr1.indices if arr1(n) != arr2(n))
         flag = false
-      if(flag)
+      if (flag)
         return true
     }
     false

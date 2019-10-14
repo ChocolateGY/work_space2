@@ -18,6 +18,7 @@ package study.interview.byteDance.DynamicAndGreedy
   */
 object MaximalSquare {
   def maximalSquare(matrix: Array[Array[Char]]): Int = {
-
+    //TODO
+    0
   }
 }

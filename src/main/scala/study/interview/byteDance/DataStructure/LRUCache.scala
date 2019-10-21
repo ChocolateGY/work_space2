@@ -27,45 +27,77 @@ package study.interview.byteDance.DataStructure
   * cache.get(3);       // 返回  3
   * cache.get(4);       // 返回  4
   * @param _capacity
+  *
+  * https://leetcode-cn.com/problems/lru-cache/solution/lru-ce-lue-xiang-jie-he-shi-xian-by-labuladong/
   */
+
+
 class LRUCache(_capacity: Int) {
+  /**
+    * hash表，用来O(1)时间来获取元素
+    */
   private val map = scala.collection.mutable.HashMap[Int, Node]()
+  //双向列表
   private val cache: DoubleList = new DoubleList()
+  //容量
   private var cap = _capacity
 
+  //获取key
   def get(key: Int): Int = {
     val value = map.get(key)
     if (value.isEmpty)
       -1
     else {
+      //如果有值，就再存放一次
       put(key, value.get.v)
       value.get.v
     }
   }
 
+  //存值
   def put(key: Int, value: Int) {
+    //新键节点
     val x = new Node(key, value)
+    //获取当前节点，查看是否有值
     val curNode = map.get(key)
     if (curNode.nonEmpty) {
+      //如果有值，则先从链表中删除，再从头节点加入
       cache.remove(curNode.get)
       cache.addFirst(x)
+      //将值放入hash表
       map.put(key, x)
     } else {
+      //如果没有值，先判断链表是否已满，满的话先删掉末尾
       if (cap == cache.length) {
         val last = cache.removeLast()
         map.remove(last.k)
       }
+      //添加元素到头部
       cache.addFirst(x)
+      //将值放入hash表
       map.put(key, x)
     }
   }
 
 }
 
+/**
+  * 节点
+  *
+  * @param k
+  * @param v
+  */
 class Node(var k: Int, var v: Int) {
   var next, prev: Node = null
 }
 
+/**
+  * 双向链表，存放记录数据
+  *
+  * @param head
+  * @param tail
+  * @param size
+  */
 class DoubleList(head: Node = new Node(0, 0), tail: Node = new Node(0, 0), private var size: Int = 0) {
   //  private var head, tail: Node = new Node(0, 0)
   //  private var size: Int = 0
@@ -110,13 +142,45 @@ class DoubleList(head: Node = new Node(0, 0), tail: Node = new Node(0, 0), priva
   */
 
 /**
-  * class LRUCache(_capacity: Int) extends java.util.LinkedHashMap[Any,Integer](_capacity,0.75F,true) {
-  * override def removeEldestEntry(eldest: java.util.Map.Entry[Any, Integer]): Boolean = {
-  * size() > _capacity
-  * }
+  * 利用java的hash链表
   *
-  * override def get(key: Any): Integer = super.getOrDefault(key,-1)
-  *
-  * override def put(key: Any, value: Integer): Integer = super.put(key, value)
-  * }
+  * @param _capacity
   */
+class LRUCache2(_capacity: Int) extends java.util.LinkedHashMap[Any, Integer](_capacity, 0.75F, true) {
+  override def removeEldestEntry(eldest: java.util.Map.Entry[Any, Integer]): Boolean = {
+    size() > _capacity
+  }
+
+  override def get(key: Any): Integer = super.getOrDefault(key, -1)
+
+  override def put(key: Any, value: Integer): Integer = super.put(key, value)
+}
+
+/**
+  * scala 类编写
+  *
+  * @param _capacity
+  */
+class LRUCache3(_capacity: Int) {
+  val map = new scala.collection.mutable.LinkedHashMap[Int, Int]()
+
+  def get(key: Int): Int = {
+    val res = map.get(key)
+    if (res.nonEmpty) {
+      map -= key
+      map += (key -> res.get)
+      res.get
+    } else
+      -1
+  }
+
+  def put(key: Int, value: Int) {
+    val res = map.get(key)
+    if (res.nonEmpty)
+      map -= key
+    if (map.size == _capacity) {
+      map.remove(map.head._1)
+    }
+    map += (key -> value)
+  }
+}

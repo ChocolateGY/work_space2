@@ -56,6 +56,7 @@ object Trap {
 
   /**
     * leetcode 最快答案
+    * 不好理解
     *
     * @param height
     * @return
@@ -78,5 +79,126 @@ object Trap {
       }
     }
     rs
+  }
+
+  /**
+    * 按列求
+    * 原理：求当前列左边最大值和右边最大值，两者最小的和当前列相比，就是当前列的水位（小于等于当前列没水）
+    * 时间O（n2)
+    * 空间O(1)
+    */
+  def trap3(height: Array[Int]): Int = {
+    var sum = 0
+    for (i <- 1 to (height.length - 2)) {
+      var preMax = 0
+      for (pre <- 0 until i) {
+        preMax = preMax.max(height(pre))
+      }
+      var lastMax = 0
+      for (last <- i + 1 until height.length) {
+        lastMax = lastMax.max(height(last))
+      }
+      val min = preMax.min(lastMax)
+
+      if (height(i) < min)
+        sum += (min - height(i))
+    }
+    sum
+  }
+
+  /**
+    * 动态规划。
+    *
+    * 在按列的基础上，把前列最大值、后列最大值放到记录表中。就是trap1的实现
+    *
+    * 时间O(n)
+    * 空间O(n)
+    */
+  def trap4(height: Array[Int]): Int = {
+    val leftMax = Array.fill(height.length)(0)
+    val rightMax = Array.fill(height.length)(0)
+
+    for (i <- 1 to (height.length - 2)) {
+      leftMax(i) = leftMax(i - 1).max(height(i - 1))
+      rightMax(height.length - 1 - i) = rightMax(height.length - 1 - i + 1).max(height(height.length - 1 - i + 1))
+    }
+
+    var sum = 0
+    for (i <- height.indices) {
+      val min = leftMax(i).min(rightMax(i))
+      if (min > height(i))
+        sum += (min - height(i))
+    }
+    sum
+  }
+
+  /**
+    * 动态规划 继续优化，
+    *
+    * 数组转为一个数字，左max好做，但右max有问题，需要加一个小技巧
+    *
+    * 根据判断  height(left-1) < height(right+1) 来确认从左开始更新还是从右开始更新
+    *
+    * ==========
+    *
+    * 所以这里要用到两个指针，left 和 right，从两个方向去遍历。
+    *
+    * 那么什么时候从左到右，什么时候从右到左呢？根据下边的代码的更新规则，我们可以知道
+    *
+    * max_left = Math.max(max_left, height[i - 1]);
+    *
+    * height [ left - 1] 是可能成为 max_left 的变量， 同理，height [ right + 1 ] 是可能成为 right_max 的变量。
+    *
+    * 只要保证 height [ left - 1 ] < height [ right + 1 ] ，那么 max_left 就一定小于 max_right。
+    *
+    * 因为 max_left 是由 height [ left - 1] 更新过来的，而 height [ left - 1 ] 是小于 height [ right + 1] 的，
+    *
+    * 而 height [ right + 1 ] 会更新 max_right，所以间接的得出 max_left 一定小于 max_right。
+    *
+    *===============
+    * 这个是错误的版本。把遍历index来做指针是错误的
+    */
+  def trap5(height: Array[Int]): Int = {
+    val len = height.length
+    var sum = 0
+    var leftMax, rightMax = 0
+    for (i <- 1 to (len - 2)) {
+      if (height(i - 1) < height(len - 1 - i + 1)) {
+        leftMax = leftMax.max(height(i - 1))
+        if (leftMax > height(i))
+          sum += (leftMax - height(i))
+      } else {
+        rightMax = rightMax.max(height(len - 1 - i + 1))
+        if (rightMax > height(len - 1 - i))
+          sum += (rightMax - height(len - 1 - i))
+      }
+    }
+    sum
+  }
+
+  /**
+    * 这个是最终版本的正确版本
+    */
+  def trap5b(height: Array[Int]): Int = {
+    val len = height.length
+    var sum = 0
+    var leftMax, rightMax = 0
+    //两个指针是必须独立的，不能和遍历index有关系
+    var left = 1
+    var right = len - 2
+    for (i <- 1 to (len - 2)) {
+      if (height(left - 1) < height(right + 1)) {
+        leftMax = leftMax.max(height(left - 1))
+        if (leftMax > height(left))
+          sum += (leftMax - height(left))
+        left += 1
+      } else {
+        rightMax = rightMax.max(height(right + 1))
+        if (rightMax > height(right))
+          sum += (rightMax - height(right))
+        right -= 1
+      }
+    }
+    sum
   }
 }

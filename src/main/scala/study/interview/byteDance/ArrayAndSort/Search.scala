@@ -92,13 +92,13 @@ object Search {
       val mid: Int = low + (high - low) / 2
       if (nums(mid) == target)
         return mid
-      else if (nums(mid) <= nums(high)) {
-        if (target >= nums(mid) && target <= nums(high))
+      else if (nums(mid) < nums(high)) {
+        if (target > nums(mid) && target <= nums(high))
           low = mid + 1
         else
           high = mid - 1
       } else {
-        if (target <= nums(mid) && target >= nums(low))
+        if (target < nums(mid) && target >= nums(low))
           high = mid - 1
         else
           low = mid + 1
@@ -144,7 +144,7 @@ object Search {
   /**
     *
     * 以下二分法的三种模板
-    * 第一种，无脑 <= , +1 -1 , return mid -1
+    * 第一种，无脑 <= , +1 -1 , return mid 。-1
     * 第二种，< , low = mid +1 ,return low or high, 如果没有还需判断
     * 第三种，< , high = mid - 1, mid 额外 +1  ,return low or high, 如果没有还需判断
     *

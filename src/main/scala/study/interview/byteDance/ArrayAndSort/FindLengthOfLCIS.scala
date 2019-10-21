@@ -31,15 +31,15 @@ object FindLengthOfLCIS {
   def findLengthOfLCIS(nums: Array[Int]): Int = {
     var count = 0
     if (nums.nonEmpty) {
-      var ct = 1
+      var ct = 1  //note，在循环外定义
       for (i <- 1 until nums.length) {
         if (nums(i) > nums(i - 1))
           ct += 1
         else
           ct = 1
-        count = count.max(ct)
+        count = count.max(ct) //也可以写到if里
       }
-      count = count.max(ct)
+      count = count.max(ct) // 这里为了补充只有一个元素的情况。
     }
     count
   }

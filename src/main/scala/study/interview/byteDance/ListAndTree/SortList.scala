@@ -1,5 +1,7 @@
 package study.interview.byteDance.ListAndTree
 
+import study.interview.byteDance.PracticeListAndTree.sortList
+
 /**
   * 在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
   * 排序链表
@@ -74,4 +76,49 @@ object SortList {
       quickSort(arr.filter(_ < arr.head)) ++ arr.filter(_ == arr.head) ++ quickSort(arr.filter(_ > arr.head))
   }
 
+  /**
+    * 正确解法，归并排序，这个是自上而下的
+    *
+    *
+    */
+  def sortList2(head: ListNode): ListNode = {
+    //安全判断
+    if (head == null || head.next == null) {
+      return head
+    }
+    //创建结果node
+    val res = new ListNode(0)
+    //创建快、慢指针
+    var slow = head
+    var fast = head.next
+    //找到中点
+    while (fast != null && fast.next != null) {
+      slow = slow.next
+      fast = fast.next.next
+    }
+    //分左右两列，把左列的末尾断开
+    val temp = slow.next
+    slow.next = null
+    //递归循环
+    var left = sortList(head)
+    var right = sortList(temp)
+
+    //创建临时节点
+    var cur = res
+    //本地归并
+    while (left != null && right != null) {
+      if (left.x < right.x) {
+        cur.next = left
+        left = left.next
+      } else {
+        cur.next = right
+        right = right.next
+      }
+      cur = cur.next
+    }
+    if (left != null) cur.next = left
+    if (right != null) cur.next = right
+    //返回结果
+    res.next
+  }
 }

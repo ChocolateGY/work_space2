@@ -19,7 +19,8 @@ object LongestConsecutive {
   }
 
   /**
-    * 使用set保存
+    * 使用set记录备份，然后深度搜索。
+    * 不断遍历前、后是否有元素。
     *
     * @param nums
     * @return

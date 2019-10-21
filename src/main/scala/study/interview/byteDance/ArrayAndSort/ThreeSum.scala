@@ -51,9 +51,18 @@ object ThreeSum {
 
   /**
     * 先排序，然后通过记录索引完成
-    * 平台问题，还是超时，java代码不会。
+    * 平台问题，还是超时，java代码不会。多试几回可能成功
+    *
     * https://www.cnblogs.com/liuliu5151/p/9124596.html
     *
+    * 总结：
+    * 1、排序数组。
+    * 2、锁定指针i，与指针j、k相加，
+    *   如果 == target，记录报错
+    *   如果 < target j++
+    *   如果 > target k--
+    *
+    *  注意每次移动指针式，去重
     * @param nums
     * @return
     */

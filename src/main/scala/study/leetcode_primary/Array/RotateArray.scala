@@ -29,6 +29,7 @@ package study.leetcode_primary.Array
   * 要求使用空间复杂度为 O(1) 的原地算法。
   */
 object RotateArray {
+  //暴力解法
   def rotate(nums: Array[Int], k: Int): Unit = {
     for (i <- 1 to k) {
       val last = nums.last
@@ -38,7 +39,7 @@ object RotateArray {
       nums(0) = last
     }
   }
-
+//暴力解法优化
   def rotate2(nums: Array[Int], k: Int): Unit = {
     val kr = k % nums.length
     for (i <- 1 to kr) {
@@ -49,7 +50,7 @@ object RotateArray {
       nums(0) = last
     }
   }
-
+//空间O(n) 时间O(n)
   def solution1(nums: Array[Int], k: Int): Unit = {
     val t = nums.clone()
 
@@ -84,8 +85,6 @@ object RotateArray {
           cur = nums(i)
         } else
           cur = t
-
-
       }
     }
   }
@@ -93,7 +92,7 @@ object RotateArray {
   /**
     * val k = 2
     * val nums = Array(1, 2, 3, 4, 5, 6)
-    *
+    * 联系
     */
   def solution2_(nums: Array[Int], k: Int): Unit = {
     if (nums.nonEmpty && k % nums.size != 0) {

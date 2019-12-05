@@ -2,7 +2,6 @@ package study.DataStructure;
 
 /**
  * 循环队列
- *
  */
 public class LoopQueue {
     //数据
@@ -36,6 +35,7 @@ public class LoopQueue {
     /**
      * 插入
      * 当尾指针达到尾部时，重新指向-1
+     *
      * @param num
      */
     public void insert(int num) {
@@ -48,6 +48,7 @@ public class LoopQueue {
     /**
      * 移除
      * 当头指针指向队尾时，重新指向-1
+     *
      * @return
      */
     public int remove() {
@@ -73,9 +74,12 @@ public class LoopQueue {
         qu.insert(4);
         qu.insert(5);
         qu.insert(5);
-        while(!qu.isEmpty()){
-            System.out.println(qu.remove());
+        System.out.println("");
+        while (!qu.isEmpty()) {
+//            System.out.println(qu.elem);
+            System.out.println(qu.elem + "\t" + qu.remove());
         }
+        System.out.println();
         System.out.println(qu.isEmpty());
     }
 }

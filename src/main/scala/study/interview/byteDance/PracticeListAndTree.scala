@@ -108,20 +108,25 @@ object PracticeListAndTree {
 
   /**
     * 链表排序
+    * * 递归  归并排序
+    * * 步骤：1、用快慢指针分离。2、左右有序链表合并
     */
 
   def sortList(head: ListNode): ListNode = {
+    //初始判断
     if (head == null || head.next == null) {
       return head
     }
     val res = new ListNode(0)
     var slow = head
     var fast = head.next
+    //这里判断fast
     while (fast != null && fast.next != null) {
       slow = slow.next
       fast = fast.next.next
     }
     val temp = slow.next
+    //这里注意断开
     slow.next = null
     var left = sortList(head)
     var right = sortList(temp)

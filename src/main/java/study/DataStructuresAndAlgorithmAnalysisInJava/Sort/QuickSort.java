@@ -2,6 +2,8 @@ package study.DataStructuresAndAlgorithmAnalysisInJava.Sort;
 
 /**
  * 快速排序
+ *
+ * 数据结构书中代码，不能使用
  */
 public class QuickSort {
 

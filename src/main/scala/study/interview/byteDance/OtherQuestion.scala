@@ -4,7 +4,42 @@ import study.interview.byteDance.ListAndTree.ListNode
 
 object OtherQuestion {
   def main(args: Array[String]): Unit = {
+    //测试重排链表
+    val node1: ListNode = new ListNode(1)
+    val node2: ListNode = new ListNode(8)
+    val node3: ListNode = new ListNode(3)
+    val node4: ListNode = new ListNode(6)
+    val node5: ListNode = new ListNode(5)
+    val node6: ListNode = new ListNode(4)
+    val node7: ListNode = new ListNode(7)
+    val node8: ListNode = new ListNode(2)
+    val node9: ListNode = new ListNode(9)
 
+    node1.next = node2
+    node2.next = node3
+    node3.next = node4
+    node4.next = node5
+    node5.next = node6
+    node6.next = node7
+    node7.next = node8
+
+    def printFun(node1: ListNode) = {
+      var node = node1
+      while (node != null) {
+        print(node.x + "\t")
+        node = node.next
+      }
+      println("")
+    }
+
+    printFun(node1)
+    val res = reorderListOpposite(node1)
+    printFun(res)
+    reorderList(res)
+    printFun(res)
+    //1	8	3	6	5	4	7	2
+    //1	2	3	4	5	6	7	8
+    //1	8	2	7	3	6	4	5
   }
 
   /**
@@ -144,12 +179,155 @@ object OtherQuestion {
     * 来源：力扣（LeetCode）
     * 链接：https://leetcode-cn.com/problems/reorder-list
     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    *
+    * 这道题集合了链表的各种操作，把每个操作搞定理清，链表大部分题都可以搞定
+    * 1、用双指针切分为二
+    * 2、将后半段反转
+    * 3、将两链表合并
     */
   def reorderList(head: ListNode): Unit = {
 
+    if (head == null || head.next == null) return
+    //1、双指针
+    var pre = head
+    var last = head.next
+    while (last != null && last.next != null) {
+      pre = pre.next
+      last = last.next.next
+    }
+    //链表分为两段
+    var p2 = pre.next
+    pre.next = null
+    var p1 = head
 
+    //2、反转后半段
+    // 循环的反转方式原理是用一个不动节点的next来保存下下一个节点。这里用的p2。
+    //也就是用头节点来链接下下一个节点，最后链接到null。
+
+    var head2 = p2
+    var next2: ListNode = null
+    while (p2.next != null) {
+      next2 = p2.next
+      p2.next = next2.next
+      next2.next = head2
+      head2 = next2
+    }
+    p2 = head2
+
+    //3、两链表合并
+    var next1: ListNode = null
+    while (p2 != null) {
+      next1 = p1.next
+      next2 = p2.next
+
+      p1.next = p2
+      p2.next = next1
+
+      p1 = next1
+      p2 = next2
+    }
   }
 
+  /**
+    * 重拍链表的对立
+    *
+    * 这道题没找到leetcode原题，但是与上一道正好相反
+    *
+    * 题目描述：一个链表，奇数位升序偶数位降序，让链表变成升序的。
+    * 比如：1 8 3 6 5 4 7 2 9，最后输出1 2 3 4 5 6 7 8 9。
+    *
+    * 分析：
+    * 1、首先根据奇数位和偶数位拆分成两个链表。
+    * 2、然后对偶数链表进行反转。
+    * 3、最后将两个有序链表进行合并。
+    */
+  def reorderListOpposite(head: ListNode): ListNode = {
+    //1、奇偶分开
+    var p1 = head
+    val head2 = head.next
+    var p2 = head2
+    //这个判断到某一个 next没有就可以了
+    while (p1.next != null && p2.next != null) {
+      if (p2 != null) {
+        p1.next = p2.next
+        p1 = p1.next
+      }
+      if (p1 != null) {
+        p2.next = p1.next
+        p2 = p2.next
+      }
+    }
+    //这个很重要，需要断开
+    p1.next = null
+    p2.next = null
+    //另一种解法，我觉得很繁琐
+    //    var p1: ListNode = null
+    //    var p2: ListNode = null
+    //
+    //    var cur1: ListNode = null
+    //    var cur2: ListNode = null
+    //
+    //    var n = head
+    //    var count = 1
+    //    while (n != null) {
+    //      if (count % 2 == 1) {
+    //        if (cur1 != null) {
+    //          cur1.next = n
+    //          cur1 = cur1.next
+    //        } else {
+    //          cur1 = n
+    //          p1 = cur1
+    //        }
+    //      } else {
+    //        if (cur2 != null) {
+    //          cur2.next = n
+    //          cur2 = cur2.next
+    //        } else {
+    //          cur2 = n
+    //          p2 = cur2
+    //        }
+    //      }
+    //      n = n.next
+    //      count += 1
+    //    }
+    //    cur1.next =null
+    //    cur2.next =null
+
+
+    //2、对偶数链表反转
+    // 递归的原理是，先dfs到最后一个节点，然后再从后往前的把 下个节点指向当前节点，当前节点指向null
+    //相当于每一步都提前保存了下一个节点。（关键点）
+    def reverse(node: ListNode): ListNode = {
+      if (node.next != null) {
+        val last = node.next
+        val head = reverse(node.next)
+        last.next = node
+        node.next = null
+        head
+      } else
+        node
+    }
+
+    p2 = reverse(head2)
+    p1 = head
+    //3、合并两个有序列表，类似于归并
+    var temp = new ListNode(0)
+    val res = temp
+    while (p1 != null && p2 != null) {
+      if (p1.x < p2.x) {
+        temp.next = p1
+        p1 = p1.next
+      } else {
+        temp.next = p2
+        p2 = p2.next
+      }
+      temp = temp.next
+    }
+    //注意这里不是while
+    if (p1 != null) temp.next = p1
+    if (p2 != null) temp.next = p2
+    res.next
+  }
 
   /**
     * 153、寻找旋转排序数组中的最小值
@@ -196,21 +374,29 @@ object OtherQuestion {
 
   /**
     * 官方高级方法
+    * 有多种情况
+    * 主要核心原理是寻找变化点，变化点的第一个元素大于第二个元素
     */
   def findMin2(nums: Array[Int]): Int = {
+    //如果只有一个元素直接返回
     if (nums.length == 1)
       return nums(0)
 
     var left = 0
     var right = nums.length - 1
+    //如果头小于尾，直接返回
     if (nums.head < nums.last)
       return nums.head
+    //二分遍历
     while (left <= right) {
       val mid = left + (right - left) / 2
+      //判断是否为变化点，如果是的话可以直接返回最小点
       if (nums(mid + 1) < nums(mid))
         return nums(mid + 1)
       if (nums(mid - 1) > nums(mid))
         return nums(mid)
+
+      //最小点在没有顺序的一侧
       if (nums(mid) > nums.head)
         left = mid + 1
       else
@@ -219,5 +405,6 @@ object OtherQuestion {
     -1
 
   }
+
 
 }

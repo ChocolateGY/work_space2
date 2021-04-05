@@ -182,7 +182,7 @@ object FindKthLargest {
       //将枢纽换到最右
       val pivotValue = nums(pivot)
       swap(pivot, right)
-      //小于枢纽的移动到左边
+      //大于枢纽的移动到左边
       var store = left
       for (i <- left to right) {
         if (nums(i) > pivotValue) {
